@@ -5,6 +5,9 @@ keymap.set("n", "<leader>de", diagnostic.open_float)
 keymap.set("n", "<leader>dE", diagnostic.setloclist)
 keymap.set("n", "<leader>dl", diagnostic.setqflist)
 
+-- Executar CodeLens ao pressionar
+-- vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { buffer = vim.fn.bufnr("%") })
+
 keymap.set("n", "[d", diagnostic.goto_prev)
 keymap.set("n", "]d", diagnostic.goto_next)
 

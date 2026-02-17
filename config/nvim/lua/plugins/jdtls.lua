@@ -37,6 +37,11 @@ return {
         java = {
           completion = { favoriteStaticMembers = { "java.util.Objects.requireNonNull" } },
           signatureHelp = { enabled = true },
+          inlayHints = {
+            parameterNames = {
+              enabled = "all" -- options: none, literal, all
+            }
+          }
         }
       },
       -- Função que roda quando o LSP conecta no buffer
