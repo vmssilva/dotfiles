@@ -1,0 +1,141 @@
+# ==========================================
+# String utility functions
+# ==========================================
+
+## @description Return the length (number of characters) of a string
+## @param $@ String input (arguments or stdin)
+strlen() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | perl -CS -ne 'chomp; print length($_), "\n"'
+}
+
+## @description Remove leading and trailing whitespace
+## @param $@ String input (arguments or stdin)
+strtrim() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//'
+}
+
+## @description Remove extra internal whitespace and trim edges
+## @param $@ String input (arguments or stdin)
+strstrip() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | sed -E 's/^[[:space:]]+//; s/[[:space:]]+$//; s/[[:space:]]+/ /g'
+}
+
+## @description Convert string to uppercase (UTF-8 aware, requires GNU sed)
+## @param $@ String input (arguments or stdin)
+strupper() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | LC_ALL=${LC_ALL:-en_US.UTF-8} sed -E 's/.*/\U&/'
+}
+
+
+## @description Convert string to lowercase (UTF-8 aware, requires GNU sed)
+## @param $@ String input (arguments or stdin)
+strlower() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | LC_ALL=${LC_ALL:-en_US.UTF-8} sed -E 's/.*/\L&/'
+}
+
+## @description Reverse a string
+## @param $@ String input (arguments or stdin)
+strrev() {
+  {
+    [ -t 0 ] && printf "%s\n" "$*" || cat
+  } | rev
+}
+
+## @description Repeat a string N times
+## @param $1 Number of repetitions
+## @param $2 String to repeat
+strrepeat() {
+
+  local count text
+
+  count="$1"
+  [ -t 0 ] && text="$2" || text=$(cat)
+
+  for ((i = 0; i < count; i++)); do
+    printf "%s" "$text"
+  done
+
+  printf "\n"
+}
+
+## @description Check if a string contains a substring
+## @param $1 Full string
+## @param $2 Substring
+strcontains() {
+  [[ "$1" == *"$2"* ]] && echo "true" || echo "false"
+}
+
+## @description Replace substring in a string
+## @param $1 Full string
+## @param $2 Target substring
+## @param $3 Replacement
+strreplace() {
+  local string="$1"
+  local search="$2"
+  local replace="$3"
+
+  echo "${string//$search/$replace}"
+}
+
+## @description Extract substring by position
+## @param $1 Full string
+## @param $2 Start index (0-based)
+## @param $3 Length
+strsub() {
+  local string="$1"
+  local start="$2"
+  local length="$3"
+
+  echo "${string:$start:$length}"
+}
+
+## @description Pad string to the right with specified character
+## @param $1 String
+## @param $2 Total length
+## @param $3 Padding character (default: space)
+strpad_right() {
+    local string="$1"
+    local length="$2"
+    local pad="${3:- }"
+
+    local str_len
+    str_len=$(printf "%s" "$string" | awk '{print length}')
+    
+    if [ "$str_len" -ge "$length" ]; then
+        printf "%s\n" "$string"
+    else
+        local pad_count=$((length - str_len))
+        printf "%s%s\n" "$string" "$(printf "%${pad_count}s" "" | tr ' ' "$pad")"
+    fi
+}
+
+## @description Pad string to the left with specified character
+## @param $1 String
+## @param $2 Total length
+## @param $3 Padding character (default: space)
+strpad_left() {
+    local string="$1"
+    local length="$2"
+    local pad="${3:- }"
+
+    local str_len
+    str_len=$(printf "%s" "$string" | awk '{print length}')
+    
+    if [ "$str_len" -ge "$length" ]; then
+        printf "%s\n" "$string"
+    else
+        local pad_count=$((length - str_len))
+        printf "%s%s\n" "$(printf "%${pad_count}s" "" | tr ' ' "$pad")" "$string"
+    fi
+}
+

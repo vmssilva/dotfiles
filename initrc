@@ -1,0 +1,13 @@
+: ${DOTFILES:="$HOME/dotfiles"}
+
+SOURCES="${DOTFILES}/sources"
+
+load_dir() {
+  for f in "$1"/*; do
+    [ -f "$f" ] && . "$f"
+  done
+}
+
+load_dir "$SOURCES/aliases"
+load_dir "$SOURCES/paths"
+load_dir "$SOURCES/functions"

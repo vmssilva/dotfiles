@@ -1,0 +1,8 @@
+# ==========================================
+# Tmux aliases
+# ==========================================
+
+## @description Create a new tmux session for music with rmpc and cava visualizer
+## @note Requires tmux, rmpc, and cava installed
+alias tplayer='tmux new-session -d -s music "rmpc" \; split-window -v "cava" \; resize-pane -D 15 \; select-pane -t 0 \; attach-session -d'
+

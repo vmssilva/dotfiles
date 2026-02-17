@@ -1,0 +1,56 @@
+# ==========================================
+# Core shell aliases
+# ==========================================
+
+## @description Go up one directory
+alias ..='cd ..'
+
+## @description Go up two directories
+alias ...='cd ../..'
+
+## @description Go up three directories
+alias ....='cd ../../..'
+
+## @description Create directory recursively (like mkdir -p)
+alias md='mkdir -p'
+
+## @description Exit the current shell
+alias q='exit'
+
+## @description Clear the terminal screen
+alias c='clear'
+
+## @description Prompt before removing files
+alias rm='rm -i'
+
+## @description Prompt before copying files
+alias cp='cp -i'
+
+## @description Prompt before moving files
+alias mv='mv -i'
+
+## @description Fun replacement for mistyped "sl" command
+## @note Prints "ls:" and runs ls instead
+alias sl='echo -en "ls:\n" && ls'
+
+## @description List files in long format with human-readable sizes
+alias ll='ls -lh'
+
+## @description List all files including hidden ones
+alias la='ls -lha'
+
+## @description Show disk usage for a file or directory, max depth 1
+alias du1='du -h --max-depth=1'
+
+## @description Use batcat instead of bat (modern cat alternative)
+alias bat='batcat'
+
+## @description Shortcut for the default editor
+alias e='editor'
+
+## @description Shortcut for nano editor
+alias n='nano'
+
+## @description Shortcut for neovim editor
+alias v='nvim'
+

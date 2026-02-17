@@ -1,0 +1,11 @@
+# ==========================================
+# Network / Web aliases
+# ==========================================
+
+## @description Test connectivity with Google DNS (8.8.8.8)
+alias pingg='ping -c 5 8.8.8.8'
+
+## @description List open ports and their processes
+alias ports='ss -tulnp'
+
+

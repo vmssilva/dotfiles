@@ -1,0 +1,25 @@
+# ==========================================
+# Git aliases
+# ==========================================
+
+## @description Add changes to the staging area
+alias ga='git add'
+
+## @description Show short status with branch and color
+alias gs='git status -sb'
+
+## @description Show a compact log with graph and decorations
+alias gl='git log --oneline --graph --decorate'
+
+## @description Show uncommitted changes
+alias gd='git diff'
+
+## @description Commit with a message
+alias gc='git commit -m'
+
+## @description Pull changes with rebase
+alias gpr='git pull --rebase'
+
+## @description Push current branch
+alias gp='git push'
+

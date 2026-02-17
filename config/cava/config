@@ -1,0 +1,11 @@
+[general]
+bars = 60
+framerate = 60
+
+[input]
+method = fifo
+source  = /tmp/mpd.fifo
+
+[output]
+method = ncurses
+

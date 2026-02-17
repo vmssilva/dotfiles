@@ -1,0 +1,16 @@
+## @description Display documentation for shell functions (optionally filtered by function name)
+## @note Requires Lua to run. Uses ${DOTFILES}/scripts/doc.lua to generate the docs
+doc() {
+    if [ ! command -v lua >/dev/null 2>&1 ]; then
+        echo "Error: Lua is not installed or not in PATH."
+        return 1
+    fi
+    
+    if [ ! -f "${DOTFILES}/scripts/doc.lua" ]; then
+        echo "Error: doc.lua script not found at ${DOTFILES}/scripts/doc.lua"
+        return 1
+    fi
+
+    lua "${DOTFILES}/scripts/doc.lua" "$@"
+}
+

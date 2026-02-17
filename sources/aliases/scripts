@@ -1,0 +1,8 @@
+# ==========================================
+# Scripts aliases
+# ==========================================
+
+## @description Display all configured aliases in an organized list
+## @note Calls the script located at ${DOTFILES}/scripts/aliases
+alias aliases='[ -f "${DOTFILES}/scripts/aliases" ] && bash "${DOTFILES}/scripts/aliases"'
+

@@ -1,0 +1,17 @@
+# ==========================================
+# System / Systemd aliases
+# ==========================================
+
+## @description List currently running services
+alias lsctl='systemctl list-units --type=service --state=running'
+
+## @description Show detailed battery status
+## @note Uses upower
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+## @description Show memory usage
+alias mem='free -h'
+
+## @description Show disk usage
+alias disk='df -h'
+

@@ -1,0 +1,19 @@
+# ==========================================
+# Apps aliases
+# ==========================================
+
+## @description Extract audio from a video using yt-dlp in MP3 format
+## @note Requires yt-dlp installed
+alias extract-audio='yt-dlp --extract-audio --audio-format mp3'
+
+## @description Copy text to the system clipboard
+## @note Requires xclip installed
+alias cb='xclip -selection clipboard'
+
+## @description Play the last song in the current MPD playlist
+## @note Requires mpc (Music Player Client)
+alias mpclast='mpc play $(mpc playlist | wc -l)'
+
+## @description Open the character map application
+## @note Uses gucharmap
+alias charmap='gucharmap'
