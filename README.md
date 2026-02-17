@@ -58,19 +58,6 @@ export DOTFILES="$HOME/dotfiles"
 source "$DOTFILES/initrc"
 ```
 
-4. Use aliases and functions directly:
-
-```bash
-# Example: Show documentation of all functions in "strings"
-doc strings
-
-# Run RMPC or MPD commands
-mpd
-rmpc
-```
-
-5. Configure your preferred applications with the files inside `config/`.
-
 ---
 
 ## 🧰 Directory Highlights
@@ -89,4 +76,6 @@ rmpc
 ## 📌 Notes
 
 * Requires **Lua** for the `doc.lua` documentation script.
+
+
 * Tested on **Linux** systems only.
