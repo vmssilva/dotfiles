@@ -77,5 +77,3 @@ source "$DOTFILES/initrc"
 
 * Requires **Lua** for the `doc.lua` documentation script.
 
-
-* Tested on **Linux** systems only.
