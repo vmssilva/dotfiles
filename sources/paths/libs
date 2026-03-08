@@ -16,6 +16,8 @@ CARGO_HOME=${HOME}/.cargo
 SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
+FLUTTER_SDK="${HOME}/dev/flutter"
+
 export JAVAFX_SDK JAVAFX_JMODS SDKMAN_DIR
-export PATH="${PATH}:${JAVA_HOME}/bin:${LUA_HOME}/bin:${GO_HOME}/bin:${CARGO_HOME}/bin"
+export PATH="${PATH}:${JAVA_HOME}/bin:${LUA_HOME}/bin:${GO_HOME}/bin:${CARGO_HOME}/bin:${FLUTTER_SDK}/bin"
 

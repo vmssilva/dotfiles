@@ -1,42 +1,51 @@
-local keymap = vim.keymap
+local keymap = vim.keymap.set
 local diagnostic = vim.diagnostic
 
-keymap.set("n", "<leader>de", diagnostic.open_float)
-keymap.set("n", "<leader>dE", diagnostic.setloclist)
-keymap.set("n", "<leader>dl", diagnostic.setqflist)
+-- Tests
+vim.keymap.set("n", "<leader>tn", function()
+	require("jdtls").test_nearest_method()
+end)
+
+vim.keymap.set("n", "<leader>tc", function()
+	require("jdtls").test_class()
+end)
+
+keymap("n", "<leader>de", diagnostic.open_float)
+keymap("n", "<leader>dE", diagnostic.setloclist)
+keymap("n", "<leader>dl", diagnostic.setqflist)
 
 -- Executar CodeLens ao pressionar
--- vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { buffer = vim.fn.bufnr("%") })
+-- vim.keymap("n", "<leader>cl", vim.lsp.codelens.run, { buffer = vim.fn.bufnr("%") })
 
-keymap.set("n", "[d", diagnostic.goto_prev)
-keymap.set("n", "]d", diagnostic.goto_next)
+keymap("n", "[d", diagnostic.goto_prev)
+keymap("n", "]d", diagnostic.goto_next)
 
 -- CODE ACTIONS
-keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "All Code Actions" })
-keymap.set("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Actions (Selection)" })
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "All Code Actions" })
+keymap("v", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code Actions (Selection)" })
 
-keymap.set(
+keymap(
 	"n",
 	"<leader>cr",
 	"<cmd>lua vim.lsp.buf.code_action({ context = { only = { 'refactor' } } })<CR>",
 	{ desc = "Refactor" }
 )
 
-keymap.set(
+keymap(
 	"n",
 	"<leader>cs",
 	"<cmd>lua vim.lsp.buf.code_action({ context = { only = { 'source' } } })<CR>",
 	{ desc = "Source Actions" }
 )
 
-keymap.set(
+keymap(
 	"n",
 	"<leader>cq",
 	"<cmd>lua vim.lsp.buf.code_action({ context = { only = { 'quickfix' } } })<CR>",
 	{ desc = "Quick Fix" }
 )
 
-keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename" })
-keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" })
-keymap.set("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References" })
-keymap.set("n", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "Rename" })
+keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition" })
+keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "References" })
+keymap("n", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })

@@ -1,0 +1,6 @@
+require("user.config.lsp.lua_ls")
+require("user.config.lsp.ts_ls")
+require("user.config.lsp.bashls")
+require("user.config.lsp.dartls")
+require("user.config.lsp.emmet_ls")
+require("user.config.lsp.java")

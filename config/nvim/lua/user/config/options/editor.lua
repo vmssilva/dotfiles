@@ -10,16 +10,16 @@ opt.tabstop = 2
 opt.termguicolors = true
 
 --" Set clipboard to system clipboard (Linux/Windows/macOS)
-cmd [[ set clipboard=unnamedplus ]]
+cmd([[ set clipboard=unnamedplus ]])
 
 --" Enable mouse support (optional)
-cmd [[ set mouse=a ]]
+cmd([[ set mouse=a ]])
 
 --" Enable search in the current file
-cmd [[ set incsearch ]]
+cmd([[ set incsearch ]])
 
 -- Enable ignore case
-cmd [[ set ignorecase ]]
+cmd([[ set ignorecase ]])
 
 --" Enable auto-completion (optional)
-cmd [[ set completeopt=menuone,noinsert,noselect ]]
+cmd([[ set completeopt=menuone,noinsert,noselect ]])
